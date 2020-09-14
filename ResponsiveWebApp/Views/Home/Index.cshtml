@@ -1,0 +1,42 @@
+﻿@model ResponsiveWebAppModel
+@{
+    ViewBag.Title = "What is your age?";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1 class="text-center">What is your age?</h1>
+    <form asp-action="Index" method="post" class="form-horizontal">
+        <div class="text-danger text-center" asp-validation-summary="All"></div>
+        <div class="row">
+            <label asp-for="Name" class="control-label col-md-4 text-lg-right text-md-left ml-md-5">User's Name:</label>
+            <input asp-for="Name" class="form-control col-md-3" />
+        </div>
+        <div  class="row">
+            <label asp-for="BirthYear" class="control-label col-md-4 text-lg-right text-md-left ml-md-5">Year of Birth:</label>
+            <input asp-for="BirthYear" class="form-control col-md-3" />
+        </div>
+        <div class="row">
+            <label asp-for="BirthMonth" class="control-label col-md-4 text-lg-right text-md-left ml-md-5">Month of Birth:</label>
+            <input asp-for="BirthMonth" class="form-control col-md-3" />
+        </div>
+        <div class="row">
+            <label asp-for="BirthDay" class="control-label col-md-4 text-lg-right text-md-left ml-md-5">Day of Birth:</label>
+            <input asp-for="BirthDay" class="form-control col-md-3" />
+        </div>
+        <div class="row">
+            <label class="control-label col-md-4 text-lg-right text-md-left ml-md-5">Person:</label>
+            <input value="@ViewBag.Name.ToString():@ViewBag.Age.ToString()" class="form-control col-md-3" readonly>
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+            <a asp-action="Index"class=" btn btn-outline-secondary text-center">Clear</a>
+        </div>
+    </form>
+</body>
+</html>
